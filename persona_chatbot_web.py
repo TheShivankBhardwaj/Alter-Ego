@@ -13,7 +13,7 @@ genai.configure(api_key=GEMINI_API_KEY)
 class PersonaBot:
     def __init__(self, name, occupation=""):
         self.youtube = build("youtube", "v3", developerKey=YOUTUBE_API_KEY)
-        self.model = genai.GenerativeModel("gemini-1.5-flash")
+        self.model = genai.GenerativeModel("gemini-2.0-flash-001")
         self.name = name
         self.occupation = occupation
         self.transcript_dir = "transcripts"
