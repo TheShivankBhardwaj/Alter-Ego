@@ -4,19 +4,11 @@ from youtube_transcript_api import YouTubeTranscriptApi
 import json
 import os
 import streamlit as st
-from dotenv import load_dotenv
+
 
 # Improved conditional key loading
-import sys
-is_cloud = 'STREAMLIT_CLOUD' in os.environ or 'streamlit_cloud' in os.environ.get('STREAMLIT_ENV', '').lower()
-if is_cloud:
-    GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
-    YOUTUBE_API_KEY = st.secrets["YOUTUBE_API_KEY"]
-else:
-    load_dotenv()
-    GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
-    YOUTUBE_API_KEY = os.getenv("YOUTUBE_API_KEY")
-
+GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
+YOUTUBE_API_KEY = st.secrets["YOUTUBE_API_KEY"]
 genai.configure(api_key=GEMINI_API_KEY)
 
 class PersonaBot:
