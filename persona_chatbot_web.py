@@ -3,12 +3,22 @@ from googleapiclient.discovery import build
 from youtube_transcript_api import YouTubeTranscriptApi
 import json
 import os
-import streamlit as st
+#import streamlit as st
+from dotenv import load_dotenv
+import os
+
+# Load from .env file
+load_dotenv()
+
+# Now you can access them like this:
+GEMINI_API_KEY= os.getenv("GEMINI_API_KEY")
+YOUTUBE_API_KEY = os.getenv("YOUTUBE_API_KEY")
 
 
 # Improved conditional key loading
-GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
-YOUTUBE_API_KEY = st.secrets["YOUTUBE_API_KEY"]
+# GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
+# YOUTUBE_API_KEY = st.secrets["YOUTUBE_API_KEY"]
+
 genai.configure(api_key=GEMINI_API_KEY)
 
 class PersonaBot:
@@ -73,7 +83,7 @@ class PersonaBot:
                 break
 
         if not transcripts:
-            st.error(f"No transcripts found for {self.name}. Attempted video IDs: {attempted_video_ids}. Check API keys or connectivity.")
+            # st.error(f"No transcripts found for {self.name}. Attempted video IDs: {attempted_video_ids}. Check API keys or connectivity.")
             raise Exception("No transcripts found—try a different persona or check API keys/connectivity.")
         with open(self.transcript_file, "w") as f:
             json.dump(transcripts, f)
