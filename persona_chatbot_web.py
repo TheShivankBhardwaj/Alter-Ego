@@ -16,8 +16,8 @@ import streamlit as st
 
 
 # Improved conditional key loading
- GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
- YOUTUBE_API_KEY = st.secrets["YOUTUBE_API_KEY"]
+GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
+YOUTUBE_API_KEY = st.secrets["YOUTUBE_API_KEY"]
 
 genai.configure(api_key=GEMINI_API_KEY)
 
