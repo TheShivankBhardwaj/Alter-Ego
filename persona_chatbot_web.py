@@ -3,21 +3,21 @@ from googleapiclient.discovery import build
 from youtube_transcript_api import YouTubeTranscriptApi
 import json
 import os
-#import streamlit as st
-from dotenv import load_dotenv
-import os
+import streamlit as st
+# from dotenv import load_dotenv
+# import os
 
 # Load from .env file
-load_dotenv()
+# load_dotenv()
 
 # Now you can access them like this:
-GEMINI_API_KEY= os.getenv("GEMINI_API_KEY")
-YOUTUBE_API_KEY = os.getenv("YOUTUBE_API_KEY")
+# GEMINI_API_KEY= os.getenv("GEMINI_API_KEY")
+# YOUTUBE_API_KEY = os.getenv("YOUTUBE_API_KEY")
 
 
 # Improved conditional key loading
-# GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
-# YOUTUBE_API_KEY = st.secrets["YOUTUBE_API_KEY"]
+ GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
+ YOUTUBE_API_KEY = st.secrets["YOUTUBE_API_KEY"]
 
 genai.configure(api_key=GEMINI_API_KEY)
 
