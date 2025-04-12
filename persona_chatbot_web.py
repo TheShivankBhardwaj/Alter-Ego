@@ -34,7 +34,7 @@ class PersonaBot:
         self.persona_prompt = self._build_persona()
 
     def _fetch_videos(self):
-        base_query = f"{self.name} {'chai aur code' if 'chai' in self.occupation.lower() else self.occupation} interview podcast ted talk discussion speech -inurl:(live stream) full hindi english subtitles"
+        base_query = f"{self.name} {self.occupation} interview podcast ted talk discussion speech -inurl:(live stream) Hindi or English subtitles"
         queries = [base_query]
         
         video_ids = []
